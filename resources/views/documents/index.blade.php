@@ -123,10 +123,8 @@
 
     @else
 
-        <livewire:tablenoitem
-            :addBtnTitle="config('conf_documents.index.addBtnTitle')"
-            :addBtnRoute="config('conf_documents.formCreate.route')"
-            :noItemText="config('conf_documents.index.noItemText')"/>
+        <livewire:flash-message :msg="['type' => 'warning', 'text' => $conf['index']['noItemText'] ]">
+
 
     @endif
 

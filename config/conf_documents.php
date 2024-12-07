@@ -6,40 +6,40 @@
 
 return [
 
-    'modelTitle' => 'Document',
+    'modelTitle' => 'Record',
 
     'index' => [
-        'title' => 'Documents',
-        'subtitle' => 'List of All Documents',
-        'route' => '/docs',
-        'addBtnTitle' => 'Add Document',
-        'noItemText' => 'No documents found in the database!',
+        'title' => 'Records',
+        'subtitle' => 'List of All Records',
+        'route' => '/records',
+        'addBtnTitle' => 'Add Record',
+        'noItemText' => 'No records found in the database!',
     ],
 
     'formCreate' => [
-        'title' => 'Documents',
-        'subtitle' => 'Add New Document',
-        'route' => '/docs/create'
+        'title' => 'Records',
+        'subtitle' => 'Add Record',
+        'route' => '/records/create'
     ],
 
     'formEdit' => [
-        'title' => 'Documents',
-        'subtitle' => 'Update Existing Document Parameters',
-        'route' => '/docs/{id}/edit'
+        'title' => 'Records',
+        'subtitle' => 'Update Existing Record Parameters',
+        'route' => '/records/{id}/edit'
     ],
 
     'show' => [
-        'title' => 'Documents',
-        'subtitle' => 'Document Details and Properties',
-        'route' => '/docs/{id}'
+        'title' => 'Records',
+        'subtitle' => 'Record Details and Properties',
+        'route' => '/records/{id}'
     ],
 
     'store' => [
-        'route' => '/docs'
+        'route' => '/records'
     ],
 
     'update' => [
-        'route' => '/docs/{id}'
+        'route' => '/records/{id}'
     ],
 
 

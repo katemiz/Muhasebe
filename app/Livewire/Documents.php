@@ -27,6 +27,9 @@ class Documents extends Component
 {
     use WithPagination;
 
+    public $conf;
+
+
     public $hasActions = true;
 
     public $show_latest = true; /// Show only latest revisions
@@ -73,7 +76,9 @@ class Documents extends Component
 
     public function mount()
     {
-        $this->setCompanyProps();
+        $this->conf = config('conf_documents');
+
+        //$this->setCompanyProps();
     }
 
 
@@ -94,15 +99,6 @@ class Documents extends Component
     }
 
 
-    public function setCompanyProps()
-    {
-        foreach (Company::all() as $c) {
-            $this->companies[$c->id] = $c->name;
-        }
-
-        $this->company_id =  Auth::user()->company_id;
-        $this->company =  Company::find($this->company_id);
-    }
 
 
     public function checkSessionVariables() {

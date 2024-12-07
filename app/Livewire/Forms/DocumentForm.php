@@ -54,12 +54,12 @@ class DocumentForm extends Form
 
     public function setDocumentProps() {
 
-        foreach (Company::all() as $c) {
-            $this->companies[$c->id] = $c->name;
-        }
+        // foreach (Company::all() as $c) {
+        //     $this->companies[$c->id] = $c->name;
+        // }
 
-        $this->company_id =  Auth::user()->company_id;
-        $this->company =  Company::find($this->company_id);
+        // $this->company_id =  Auth::user()->company_id;
+        // $this->company =  Company::find($this->company_id);
     }
 
 

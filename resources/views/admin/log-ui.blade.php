@@ -17,7 +17,7 @@
     </head>
 
 
-    <body style="background-image: url('{{ asset('/images/HeroPage1.png') }}');" class="bg-cover bg-center bg-no-repeat">
+    <body class="bg-sky-100">
 
         @livewire('logware')
 

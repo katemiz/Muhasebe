@@ -1,4 +1,4 @@
-<section class="container mx-auto p-4">
+<section class="container mx-auto p-4 bg-white">
 
     <livewire:header
         type="Hero"

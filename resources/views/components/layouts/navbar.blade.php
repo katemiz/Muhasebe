@@ -1,101 +1,24 @@
-<header class="bg-gray-800 text-white border-b-2 border-blue-50">
+<header class="bg-teal-800 text-white border-b-2 border-blue-50">
 
   <nav class="flex items-center justify-between gap-4 px-4 py-4 h-16">
 
     <a href="/" class="text-2xl whitespace-nowrap flex ">
-      <x-carbon-model-alt class="w-8 text-blue-600"/>
-      <span class="px-2 font-extrabold">{{ config('appconstants.app.code') }}</span>
+
+      <x-carbon-money class="w-8 text-yellow-400"/>
+
+
+
+      <span class="px-2 font-extrabold">{{ env('APP_CODE') }}</span>
     </a>
 
     <div id="menu" class="absolute left-0 top-16 max-md:bg-gray-200 w-full flex flex-col gap-6 p-4 md:static md:flex-row md:justify-between items-center ">
 
         <ul class="flex flex-col text-black md:flex-row px-2 w-full z-50">
 
-          {{-- ADMIN MENU --}}
-          <li class="relative p-2 md:text-white justify-center md:hover:bg-sky-900">
-
-            <x-nav-link id="admBtn" type="dropdown">Admin</x-nav-link>
-
-            <div id="adminMenu" class="md:absolute mt-4 md:hidden flex flex-col bg-white w-full md:w-64 left-0 md:shadow-lg md:border md:border-gray-800">
-
-              <ul class="flex flex-col text-black">
-
-                <x-nav-link href="/usrs" type="submenu">Users</x-nav-link>
-                <x-nav-link href="/docs" type="submenu">Roles</x-nav-link>
-                <x-nav-link href="/document/list" type="submenu">Permissions</x-nav-link>
-                <x-nav-link href="/document/list" type="submenu">Companies</x-nav-link>
-                <x-nav-link href="/document/list" type="submenu">Projects</x-nav-link>
-
-              </ul>
-            </div>
-
-          </li>
-
-
-
-          {{-- REQUESTS MENU --}}
-          <li class="relative p-2 md:text-white justify-center md:hover:bg-sky-900">
-
-            <x-nav-link id="reqBtn" type="dropdown">Requests</x-nav-link>
-
-            <div id="requestMenu" class="md:absolute mt-4 md:hidden flex flex-col bg-white w-full md:w-96 left-0 md:shadow-lg md:border md:border-gray-800">
-
-              <ul class="flex flex-col text-black">
-
-                <x-nav-link href="/document/list" type="submenu">Change Requests</x-nav-link>
-                <x-nav-link href="/document/list" type="submenu">Engineering Change Requests (ECN)</x-nav-link>
-
-              </ul>
-            </div>
-
-          </li>
-
-
-
-          {{-- PRODUCTS MENU --}}
-          <li class="relative p-2 md:text-white justify-center md:hover:bg-sky-900">
-
-            <x-nav-link id="productsBtn" type="dropdown">Products</x-nav-link>
-
-            <div id="productMenu" class="md:absolute mt-4 md:hidden flex flex-col bg-white w-full md:w-64 left-0 md:shadow-lg md:border md:border-gray-800">
-
-                <ul class="flex flex-col text-black">
-
-                    <x-nav-link href="/document/list" type="submenu">Sellables</x-nav-link>
-                    <x-nav-link href="/document/list" type="submenu">Components</x-nav-link>
-
-                </ul>
-            </div>
-
-          </li>
-
-
-
-          {{-- DOCUMENTS --}}
-          <x-nav-link href="/docs" type="menu_link" :active="request()->is('/documents')">Documents</x-nav-link>
-
-
-          {{-- ENGINEERING MENU --}}
-          <li class="relative p-2 md:text-white justify-center md:hover:bg-sky-900">
-
-            <x-nav-link id="engBtn" type="dropdown">Engineering</x-nav-link>
-
-            <div id="engineeringMenu" class="md:absolute mt-4 md:hidden flex flex-col bg-white w-full md:w-72 left-0 md:shadow-lg md:border md:border-gray-800">
-
-                <ul class="flex flex-col text-black">
-
-                    <x-nav-link href="/utilities" type="submenu">Engineering Utilities</x-nav-link>
-                    <x-nav-link href="/materials" type="submenu">Materials</x-nav-link>
-                    <x-nav-link href="/notes" type="submenu">Product Notes</x-nav-link>
-                    <x-nav-link href="/standards" type="submenu">Standard Families</x-nav-link>
-
-                </ul>
-            </div>
-
-          </li>
-
-          {{-- MOM --}}
-          <x-nav-link href="/mom" type="menu_link" :active="request()->is('/mom')">MOM</x-nav-link>
+            @if(Auth::check())
+            {{-- DOCUMENTS --}}
+            <x-nav-link href="/records" type="menu_link">Records</x-nav-link>
+            @endif
 
         </ul>
 
@@ -147,7 +70,7 @@
 
             <a href="/logware/login" class="inline-flex items-center bg-blue-400 md:bg-transparent w-full p-4">
               <div class="text-blue-600 md:text-yellow-400 ">
-                <x-carbon-login class="w-6"/>
+                <x-heroicons::outline.arrow-right-end-on-rectangle class="w-6"/>
               </div>
               <span class="px-2">{{ __('ui.links.login.text')}}</span>
             </a>

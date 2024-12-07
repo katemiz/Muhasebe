@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="{{ asset('/SweetAlert/sweetalert2_min.css') }}">
         <script src="{{ asset('/SweetAlert/sweetalert2.min.js') }}"></script>
 
-        <link href="{{ asset('/css/quill.snow.css') }}" rel="stylesheet">  
+        <link href="{{ asset('/css/quill.snow.css') }}" rel="stylesheet">
         <script src="{{ asset('/js/quill.js') }}"></script>
 
         @vite('resources/css/app.css')
@@ -22,7 +22,7 @@
 
     </head>
 
-    <body>
+    <body class="bg-gray-300">
 
         @include('components.layouts.navbar')
         {{ $slot }}

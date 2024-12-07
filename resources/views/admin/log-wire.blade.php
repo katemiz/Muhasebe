@@ -33,12 +33,13 @@
         <div class="flex flex-col justify-between ">
 
 
-            <p class="text-3xl font-extrabold pt-4">{{ config('appconstants.app.code') }}</p>
-            <p class="text-gray-500">{{ config('appconstants.app.name') }}</p>
+            <p class="text-3xl font-extrabold pt-4">{{ env('APP_CODE') }}</p>
+            <p class="text-gray-500">{{ env('APP_NAME') }}</p>
 
 
             <div class="mx-auto justify-center py-16">
-                <x-carbon-model-alt class="w-36 h-36 text-indigo-500 my-4"/>
+                <x-carbon-money class="w-36 h-36 text-teal-900 my-4"/>
+
             </div>
 
 

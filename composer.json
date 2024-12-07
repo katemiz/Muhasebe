@@ -18,7 +18,8 @@
         "simplesoftwareio/simple-qrcode": "~4",
         "spatie/laravel-medialibrary": "^10.0.0",
         "spatie/laravel-permission": "^5.10",
-        "tecnickcom/tcpdf": "^6.6"
+        "tecnickcom/tcpdf": "^6.6",
+        "wireui/wireui": "^2.2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.14",

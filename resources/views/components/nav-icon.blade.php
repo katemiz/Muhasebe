@@ -33,7 +33,7 @@
         @break
 
     {{-- ************* --}}
-    @case('Requests')
+    @case('Records')
         <x-carbon-intent-request-scale-in class="w-6 text-blue-600 md:text-amber-400"/>
         @break
 
