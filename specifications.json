@@ -1,0 +1,72 @@
+{
+
+    "part_number":293884,
+    "version":1,
+    "product_type" :"mast",
+    "nomenclature":"EML-AL MAST 1-2.5M LOCKING",
+    "description":"detailed description of end product",
+    "mast_family_mt":"MTX",
+    "mast_family_wb":"EML",
+    "drive_type":"manual,pneumatic,hydraulic,electromechanical",
+
+    "specifications":{
+        "extended_height_mm":"2512",
+        "extended_height_in":"99",
+        "nested_height_mm":"1000",
+        "nested_height_in":"39",
+        "product_weight_kg":"50",
+        "product_weight_lb":"110",
+        "max_payload_kg":"170",
+        "max_payload_lb":"374",
+        "design_sail_area":"0.8",
+        "design_drag_coefficient":1.5,
+        "max_operational_wind_speed":"80",
+        "max_survival_wind_speed":"120",
+        "number_of_sections":5,
+        "has_locking":true,
+        "max_pressure_in_bar":2
+    },
+
+    "interfaces":{
+        "mechanical":{
+            "payload_interface":true,
+            "roof_interface":false,
+            "side_interface":true,
+            "bottom_interface":true,
+            "guying_interface":true,
+            "number_of_guying_interfaces":3,
+            "hoisting_interface":true,
+            "lubrication_interface":true,
+            "manual_override_interface":true,
+            "wire_management":true,
+            "wire_basket":true
+        },
+
+        "electrical":{
+            "vdc12_interface" :false,
+            "vdc24_interface" :false,
+            "vdc28_interface" :false,
+            "ac110_interface" :false,
+            "ac220_interface" :false,
+            "power_rating" :"550W"
+        },
+
+        "digital":{
+        }
+    },
+
+    "material":{
+    },
+
+    "finish":{
+    },
+
+    "bag" :{
+
+    },
+
+    "package" :{
+
+    }
+
+}
