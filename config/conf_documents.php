@@ -114,12 +114,13 @@ return [
 
 
     'docTypes' => [
-        'GR' => 'General Document',
-        'TR' => 'Test Report',
-        'AR' => 'Analysis Report',
-        'MN' => 'User Manual',
-        'ME' => 'Memo',
-        'PR' => 'Presentation'
+        'EV' => 'Ev - Elektrik/Su/Doğalgaz/Aidat',
+        'TR' => 'Ev - Internet -TV',
+        'SA' => 'Sağlık',
+        'YE' => 'Yemek',
+        'DE' => 'Demirbaş',
+        'BE' => 'Benzin',
+        'DI' => 'Diğer'
     ],
 
     'languages' => [

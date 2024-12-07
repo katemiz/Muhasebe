@@ -1,6 +1,6 @@
-<header class="bg-teal-800 text-white border-b-2 border-blue-50">
+<header class="bg-indigo-900 text-white">
 
-  <nav class="flex items-center justify-between gap-4 px-4 py-4 h-16">
+  <nav class="flex items-center justify-between gap-4 px-4 h-16">
 
     <a href="/" class="text-2xl whitespace-nowrap flex ">
 

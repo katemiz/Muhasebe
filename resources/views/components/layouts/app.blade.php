@@ -16,6 +16,12 @@
         <link href="{{ asset('/css/quill.snow.css') }}" rel="stylesheet">
         <script src="{{ asset('/js/quill.js') }}"></script>
 
+        <wireui:scripts />
+
+        <script src="//unpkg.com/alpinejs" defer></script>
+
+
+
         @vite('resources/css/app.css')
         @vite('resources/js/app.js')
         @vite('resources/js/scripts.js')

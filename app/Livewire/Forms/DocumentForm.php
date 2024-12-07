@@ -18,49 +18,28 @@ class DocumentForm extends Form
 {
     public ?Document $document;
 
-    #[Validate('required', message: 'Please add document title')]
-    #[Validate('min:16', message: 'Document title is too short. At least 16 characters')]
-    public String $title = '';
-
     // RECORD ID
     public $uid;
 
-    // DOC NO WITH REVISION
-    public $docNo = false;
-
     // COMPANY
-    public $company_id;
-    public $company;
-    public $companies = [];
-
+    public $zaman;
+    public $bedel;
 
     #[Validate('required', message: 'Please select document type')]
-    public $doc_type = 'GR';
-
-
-    #[Validate('required', message: 'Please select document language')]
-    public String $language = 'TR';
-
-
-    // DOCUMENT SYNOPSIS
-    #[Validate('required', message: 'Please add a synopsis for document content.')]
-    #[Validate('min:16', message: 'Synopsis is too short. At least 16 characters')]
+    public $doc_type = 'EV';
+    public $docTypes;
     public String $synopsis = '';
-
 
     // FILES
     public $files = [];
 
 
+
+
     public function setDocumentProps() {
-
-        // foreach (Company::all() as $c) {
-        //     $this->companies[$c->id] = $c->name;
-        // }
-
-        // $this->company_id =  Auth::user()->company_id;
-        // $this->company =  Company::find($this->company_id);
+        $this->docTypes =  config('conf_documents.docTypes');
     }
+
 
 
 
@@ -70,15 +49,11 @@ class DocumentForm extends Form
     {
         $this->uid = $id;
         $this->document = Document::find($id);
-        $this->docNo = $this->document->docNo;
-        $this->title = $this->document->title;
+        $this->zaman = $this->document->zaman;
+        $this->bedel = $this->document->bedel;
         $this->synopsis = $this->document->remarks ? $this->document->remarks:'';
         $this->doc_type = $this->document->doc_type;
-        $this->language = $this->document->language;
-        $this->company_id =  $this->document->company_id;
     }
-
-
 
 
     public function store()
@@ -86,15 +61,13 @@ class DocumentForm extends Form
         $this->validate();
 
         $props['user_id'] = Auth::id();
-        $props['document_no'] = $this->getDocumentNo();
-        $props['updated_uid'] = Auth::id();
         $props['doc_type'] = $this->doc_type;
-        $props['language'] = $this->language;
-        $props['company_id'] = $this->company_id;
-        $props['title'] = $this->title;
+        $props['zaman'] = $this->zaman;
+        $props['bedel'] = $this->bedel;
         $props['remarks'] = $this->synopsis;
 
-        $props['toc'] = json_encode([]);
+
+        dd($props);
 
         $id = Document::create($props)->id;
 
@@ -111,14 +84,11 @@ class DocumentForm extends Form
     {
         $this->validate();
 
-        $props['updated_uid'] = Auth::id();
+        $props['user_id'] = Auth::id();
         $props['doc_type'] = $this->doc_type;
-        $props['language'] = $this->language;
-        $props['company_id'] = $this->company_id;
-        $props['title'] = $this->title;
+        $props['zaman'] = $this->zaman;
+        $props['bedel'] = $this->bedel;
         $props['remarks'] = $this->synopsis;
-
-        $props['toc'] = json_encode([]);
 
         $document = Document::findOrFail($id);
 
@@ -131,49 +101,4 @@ class DocumentForm extends Form
 
         return true;
     }
-
-
-
-    public function getDocumentNo() {
-
-        $parameter = 'document_no';
-        $initial_no = config('appconstants.counters.document_no');
-        $counter = Counter::find($parameter);
-
-        if ($counter == null) {
-            Counter::create([
-                'counter_type' => $parameter,
-                'counter_value' => $initial_no
-            ]);
-
-            return $initial_no;
-        }
-
-        $new_no = $counter->counter_value + 1;
-        $counter->update(['counter_value' => $new_no]);         // Update Counter
-        return $new_no;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
-
-
-
-
-
-

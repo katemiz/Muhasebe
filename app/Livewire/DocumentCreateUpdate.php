@@ -17,6 +17,9 @@ class DocumentCreateUpdate extends Component
 
     public DocumentForm $form;
 
+    public $conf;
+
+
     public $id = false;
 
     #[Validate(['files.*' => 'max:50000'])]
@@ -24,7 +27,10 @@ class DocumentCreateUpdate extends Component
 
     public function mount($id = null) {
 
+        $this->conf = config('conf_documents');
+
         $this->form->setDocumentProps();
+
 
         if ($id) {
             $this->id = $id;
@@ -51,7 +57,7 @@ class DocumentCreateUpdate extends Component
             $model->addMedia($file)->toMediaCollection('Doc');
         }
 
-        return $this->redirect('/docs/'.$id);
+        return $this->redirect('/records/'.$id);
     }
 
 
@@ -66,7 +72,7 @@ class DocumentCreateUpdate extends Component
             $model->addMedia($file)->toMediaCollection('Doc');
         }
 
-        return $this->redirect('/docs/'.$this->id);
+        return $this->redirect('/records/'.$this->id);
     }
 
 
