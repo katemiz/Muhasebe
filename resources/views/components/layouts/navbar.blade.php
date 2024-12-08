@@ -101,64 +101,12 @@
     })
 
 
-    // ADMIN MENU
-    const adminButton = document.getElementById('admBtn')
-    const adminMenu = document.getElementById('adminMenu')
-
-    adminButton.addEventListener('click', () => {
-      adminMenu.classList.toggle('md:hidden')
-      adminMenu.classList.toggle('top-8')
-    })
-
-    adminMenu.addEventListener('mouseleave', () => {
-      adminMenu.classList.toggle('md:hidden')
-      adminMenu.classList.toggle('top-8')
-    })
 
 
-    // REQUESTS MENU
-    const requestButton = document.getElementById('reqBtn')
-    const requestMenu = document.getElementById('requestMenu')
-
-    requestButton.addEventListener('click', () => {
-      requestMenu.classList.toggle('md:hidden')
-      requestMenu.classList.toggle('top-8')
-    })
-
-    requestMenu.addEventListener('mouseleave', () => {
-      requestMenu.classList.toggle('md:hidden')
-      requestMenu.classList.toggle('top-8')
-    })
 
 
-    // PRODUCTS MENU
-    const productButton = document.getElementById('productsBtn')
-    const productMenu = document.getElementById('productMenu')
-
-    productButton.addEventListener('click', () => {
-      productMenu.classList.toggle('md:hidden')
-      productMenu.classList.toggle('top-8')
-    })
-
-    productMenu.addEventListener('mouseleave', () => {
-      productMenu.classList.toggle('md:hidden')
-      productMenu.classList.toggle('top-8')
-    })
 
 
-    // ENGINEERING MENU
-    const engineeringButton = document.getElementById('engBtn')
-    const engineeringMenu = document.getElementById('engineeringMenu')
-
-    engineeringButton.addEventListener('click', () => {
-      engineeringMenu.classList.toggle('md:hidden')
-      productMenu.classList.toggle('top-8')
-    })
-
-    engineeringMenu.addEventListener('mouseleave', () => {
-      engineeringMenu.classList.toggle('md:hidden')
-      engineeringMenu.classList.toggle('top-8')
-    })
 
 
     // USER MENU

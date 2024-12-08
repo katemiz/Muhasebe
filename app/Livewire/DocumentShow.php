@@ -72,8 +72,8 @@ class DocumentShow extends Component
 
         $this->permissions = (object) [
             "show" => true,
-            "edit" => false,
-            "delete" => false,
+            "edit" => true,
+            "delete" => true,
             "freeze" => false,
             "release" => false,
             "revise" => false
@@ -82,15 +82,8 @@ class DocumentShow extends Component
         // SHOW/READ
         $this->permissions->show = true;
 
-        // EDIT
-        if ( in_array($this->document->status,['Verbatim']) ) {
-            $this->permissions->edit = true;
-        }
 
-        // DELETE
-        if ( in_array($this->document->status,['Verbatim']) ) {
-            $this->permissions->delete = true;
-        }
+
 
         // FREEZE
         if ( in_array($this->document->status,['Verbatim']) ) {
@@ -306,7 +299,7 @@ class DocumentShow extends Component
 
         $msgdata['blade'] = 'emails.document_released';  // Blade file to be used
         $msgdata['subject'] = 'D'.$doc->document_no.' R'.$doc->revision.' Belge Yayınlanma Bildirimi / Document Release Notification';
-        $msgdata['url'] = url('/').'/docs/'.$this->uid;
+        $msgdata['url'] = url('/').'/records/'.$this->uid;
         $msgdata['url_title'] = 'Belge Bağlantısı / Document Link';
 
         $msgdata['document_no'] = $doc->document_no;

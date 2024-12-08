@@ -19,8 +19,8 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class);
             $table->string('doc_type');
-            $table->text('zaman');
-            $table->float('bedel');
+            $table->date('zaman');
+            $table->double('bedel', 20, 2);
             $table->text('remarks')->nullable();
             $table->timestamps();
         });

@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
+
 use App\Models\User;
 use App\Models\Company;
 
@@ -27,19 +29,25 @@ class Document extends Model implements HasMedia
     }
 
 
-    public function getDocNoAttribute($value) {
-        return 'D'.$this->document_no.' R'.$this->revision;
+
+
+
+
+
+    // protected function bedel(): Attribute
+    // {
+    //     return Attribute::make(
+    //         get: fn (string $value) => number_format($value, 2, ',', '.'),
+    //         set: fn (string $value) => $value,
+    //     );
+    // }
+
+    public function getBedelFormattedAttribute($value) {
+        return number_format($this->bedel, 2, ',', '.');
     }
 
 
-    public function getRevisionsAttribute($value) {
-        //return Document::select('id','revision')->where('document_no',$this->document_no)->order_by('revision', 'ASC');
-        return Document::select('id','revision')->where('document_no',$this->document_no)->get()->toArray();
-    }
 
-    public function getCompanyNameAttribute($value) {
-        $comp = Company::find($this->company_id);
-        return $comp->name;
-    }
+
 
 }

@@ -109,15 +109,7 @@ class Documents extends Component
 
     public function getDocumentsList()  {
 
-        switch ($this->sortField) {
-            case 'DocNo':
-                $this->sortField = 'document_no';
-                break;
 
-            case 'Author':
-                $this->sortField = 'user_id';
-                break;
-        }
 
         if ($this->query) {
 
@@ -134,27 +126,11 @@ class Documents extends Component
 
         } else {
 
-            if ($this->show_latest) {
 
-                return Document::where('is_latest', true)
-                ->orderBy($this->sortField,$this->sortDirection)
-                ->paginate(env('RESULTS_PER_PAGE'));
 
-            } else {
+            return Document::orderBy($this->sortField,$this->sortDirection)
+            ->paginate(env('RESULTS_PER_PAGE'));
 
-                return Document::orderBy($this->sortField,$this->sortDirection)
-                ->paginate(env('RESULTS_PER_PAGE'));
-            }
-        }
-
-        switch ($this->sortField) {
-            case 'document_no':
-                $this->sortField = 'DocNo';
-                break;
-
-            case 'user_id':
-                $this->sortField = 'Author';
-                break;
         }
     }
 

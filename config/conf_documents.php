@@ -47,10 +47,11 @@ return [
 
         'id' => [
             'label' => 'No',
-            'visibility' => false,
+            'visibility' => true,
             'sortable' => false,
             'wrapText' => true,
             'hasViewLink' => false,
+            'class' => ''
         ],
 
         'user_id' => [
@@ -59,40 +60,46 @@ return [
             'sortable' => false,
             'wrapText' => true,
             'hasViewLink' => false,
+            'class' => ''
         ],
 
-        'DocNo' => [
-            'label' => 'No',
+        'doc_type' => [
+            'label' => 'Tür',
             'visibility' => true,
             'sortable' => true,
-            'wrapText' => false,
-            'hasViewLink' => true,
+            'wrapText' => true,
+            'hasViewLink' => false,
+            'class' => ''
         ],
 
-        'company_id' => [
-            'label' => 'Company',
+        'zaman' => [
+            'label' => 'Zaman',
+            'visibility' => true,
+            'sortable' => true,
+            'wrapText' => true,
+            'hasViewLink' => false,
+            'class' => ''
+        ],
+
+        'bedel' => [
+            'label' => 'Bedel, TL',
             'visibility' => false,
-            'sortable' => false,
+            'sortable' => true,
             'wrapText' => true,
             'hasViewLink' => false,
+            'class' => 'text-right'
         ],
 
-        'title' => [
-            'label' => 'Title',
+        'bedel_formatted' => [
+            'label' => 'Bedel, TL',
             'visibility' => true,
             'sortable' => true,
             'wrapText' => true,
             'hasViewLink' => false,
+            'class' => 'text-right'
         ],
 
 
-        'Author' => [
-            'label' => 'Author',
-            'visibility' => true,
-            'sortable' => true,
-            'wrapText' => true,
-            'hasViewLink' => false,
-        ],
 
         'created_at' => [
             'label' => 'Created At',
@@ -100,6 +107,7 @@ return [
             'sortable' => true,
             'wrapText' => true,
             'hasViewLink' => false,
+            'class' => 'text-right'
         ],
 
         'updated_at' => [
@@ -108,6 +116,7 @@ return [
             'sortable' => false,
             'wrapText' => true,
             'hasViewLink' => false,
+            'class' => ''
         ],
 
     ],

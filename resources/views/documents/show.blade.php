@@ -12,11 +12,7 @@
       <div class="flex flex-col md:flex-row ">
 
         <div class="w-3/4">
-            <p class="text-6xl mb-2 font-light">{{ $document->docNo }}</p>
-
-            @if (!$document->is_latest)
-            <p class="text-base text-red-400">Do Not Use. Use Latest Revision</p>
-            @endif
+            <p class="text-6xl mb-2 font-light">KAYIT-{{ $document->id }}</p>
         </div>
 
         <div class="w-1/4 text-right">
@@ -43,7 +39,7 @@
 
           {{-- LIST ALL --}}
           <span class='has-tooltip'>
-            <a href="/docs" class="bg-blue-700 hover:bg-blue-800 text-white p-2 rounded inline-flex items-center">
+            <a href="/records" class="bg-blue-700 hover:bg-blue-800 text-white p-2 rounded inline-flex items-center">
               <x-ikon name="List" />
             </a>
 
@@ -60,16 +56,14 @@
 
       </div>
 
-      <div class="flex justify-between">
-        <p class="text-xl">{{ $document->title }}</p>
 
-        <div class="">
-            <x-badge type="warning">{{ $conf['docTypes'][$document->doc_type] }}</x-badge>
-            <x-badge type="dark">{{ $document->company_name }}</x-badge>
-        </div>
+
+
+      <div class="flex justify-between">
+            <x-badge lg negative label="{{ $document->bedel_formatted}} TL" />
+            <x-badge lg black negative label="{{ $conf['docTypes'][$document->doc_type] }}" />
       </div>
 
-      <livewire:rev-history :model="$document" redirect="/docs/" :rev="$document->revision"/>
 
       @if ($document->remarks)
         <div class="text-xl font-bold">Remarks</div>

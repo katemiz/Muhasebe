@@ -7,13 +7,7 @@
         <p class="text-sm text-gray-400">{{ $created_at }}</p>
     </div>
 
-    <div class="pr-6">
-        <p class="uppercase tracking-wide text-sm text-indigo-500 ">MODIFED</p>
-        <p class="text-sm text-gray-500">{{ $modifier->email }}</p>
-        <p class="text-sm text-gray-400">{{ $modifier->name }} {{ $modifier->lastname }}</p>
-        <p class="text-sm text-gray-400">{{ $modified_at }}</p>
 
-    </div>
 
 
     @if ($checker)

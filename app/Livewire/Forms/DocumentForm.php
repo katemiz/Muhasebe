@@ -22,16 +22,19 @@ class DocumentForm extends Form
     public $uid;
 
     // COMPANY
+    #[Validate('required', message: 'Tarihi giriniz')]
     public $zaman;
+
+    #[Validate('required', message: 'Bedeli giriniz')]
     public $bedel;
 
     #[Validate('required', message: 'Please select document type')]
-    public $doc_type = 'EV';
-    public $docTypes;
-    public String $synopsis = '';
+    public String $doc_type = 'EV';
+    public Array $docTypes;
+    public String $remarks = '';
 
     // FILES
-    public $files = [];
+    public Array $files = [];
 
 
 
@@ -51,7 +54,7 @@ class DocumentForm extends Form
         $this->document = Document::find($id);
         $this->zaman = $this->document->zaman;
         $this->bedel = $this->document->bedel;
-        $this->synopsis = $this->document->remarks ? $this->document->remarks:'';
+        $this->remarks = $this->document->remarks ? $this->document->remarks:'';
         $this->doc_type = $this->document->doc_type;
     }
 
@@ -64,10 +67,7 @@ class DocumentForm extends Form
         $props['doc_type'] = $this->doc_type;
         $props['zaman'] = $this->zaman;
         $props['bedel'] = $this->bedel;
-        $props['remarks'] = $this->synopsis;
-
-
-        dd($props);
+        $props['remarks'] = $this->remarks;
 
         $id = Document::create($props)->id;
 
@@ -88,7 +88,7 @@ class DocumentForm extends Form
         $props['doc_type'] = $this->doc_type;
         $props['zaman'] = $this->zaman;
         $props['bedel'] = $this->bedel;
-        $props['remarks'] = $this->synopsis;
+        $props['remarks'] = $this->remarks;
 
         $document = Document::findOrFail($id);
 

@@ -40,7 +40,7 @@
                                 {{ $prop['label'] }}
 
                                 @if ($prop['sortable'])
-                                    <a wire:click="sort('{{$key}}')" class="hover:text-orange-400 {{ $key == $sortField ? "text-blue-600" :''}}">
+                                    <a wire:click="sort('{{$key}}')" class="hover:text-orange-400 {{ $key == $sortField ? "text-blue-600" :''}} {{ $prop['class'] }}">
                                         @if ($key == $sortField)
 
                                             @if ($sortDirection == 'ASC')
@@ -74,10 +74,10 @@
                             @foreach (config('conf_documents.table') as $key => $prop)
 
                                 @if ($prop['visibility'])
-                                    <td class="px-4 py-2 text-base {{ !$prop['wrapText'] ? 'whitespace-nowrap':'' }}">
+                                    <td class="px-4 py-2 text-base {{ !$prop['wrapText'] ? 'whitespace-nowrap':'' }}  {{ $prop['class'] }}">
 
                                         @if ($prop['hasViewLink'])
-                                            <a href="/docs/{{ $record->id }}" class="inline-flex text-blue-700">
+                                            <a href="/records/{{ $record->id }}" class="inline-flex text-blue-700">
                                                 {{ $record[$key] }}
                                             </a>
                                         @else
@@ -93,14 +93,14 @@
 
                                 <td scope="col" class="px-4 py-2 text-base text-right whitespace-nowrap">
 
-                                    <a href="/docs/{{ $record->id }}" class="inline-flex text-blue-700">
+                                    <a href="/records/{{ $record->id }}" class="inline-flex text-blue-700">
                                         <x-ikon name="View" size="L"/>
                                     </a>
 
                                     @role(['EngineeringDept'])
 
                                         @if ( !in_array($record->status,['Frozen','Released']) )
-                                            <a href="/docs/{{ $record->id }}/edit" class="inline-flex text-blue-700">
+                                            <a href="/records/{{ $record->id }}/edit" class="inline-flex text-blue-700">
                                                 <x-ikon name="Edit" size="L"/>
                                             </a>
                                         @endif

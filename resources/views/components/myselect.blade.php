@@ -3,11 +3,11 @@
     <h3 class="font-semibold text-gray-900 text-md mb-2">{{ $label }}</h3>
 
     <div class="flex flex-col md:flex-row gap-4">
-        <select wire:model='family' class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            <option>Select Family</option>
+        <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option>{{ $label }}</option>
 
             @foreach ($options as $key => $value)
-                <option value="{{$key}}">{{$value}}</option>
+                <option value="{{$key}}" {{ $selected == $key ? 'selected' : '' }}>{{$value}}</option>
             @endforeach
         </select>
     </div>
